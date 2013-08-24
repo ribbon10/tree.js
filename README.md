@@ -39,7 +39,7 @@ data-toggle  | Attribute that tells the plugin that this is an interactive eleme
 
 \* Selectors are applied to all elements insite the closest element that has a data-root="..." attribute.
 
-Following html code
+Following html code:
 ```html
 <table class="table">
   <thead>
@@ -61,11 +61,11 @@ Following html code
   </tbody>
 </table>
 ```
-is generating this table:
+is generating this table (screenshot, an interactive demo is available [here](http://htmlpreview.github.io/?https://github.com/ribbon10/tree.js/master/doc/demo.html) ):
 ![usage example](https://raw.github.com/ribbon10/tree.js/master/doc/screenshot_usage.png "usage example")
 
 ### Options
-There are no options are available at the moment.
+There are no options available at the moment.
 
 ### Methods
 No methods available at the moment.
