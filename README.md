@@ -13,7 +13,7 @@ At the moment this plugin is in pre-alpha stage and is only a proof of concept w
 For an interactive example have a look at the [demo page](http://rawgithub.com/ribbon10/tree.js/master/doc/demo.html).
 
 ## Getting Started
-Download [tabeplus](https://github.com/ribbon10/tree.js/archive/master.zip) from github, unzip to your project and load JavaScript & CSS file on your site.
+Download [tree](https://github.com/ribbon10/tree.js/archive/master.zip) from github, unzip to your project and load JavaScript & CSS file on your site.
 ```html
 <head>
     ...
