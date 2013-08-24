@@ -62,7 +62,7 @@ Following html code
 </table>
 ```
 is generating this table:
-![usage example](https://raw.github.com/ribbon10/tree/master/doc/screenshot_usage.png "usage example")
+![usage example](https://raw.github.com/ribbon10/tree.js/master/doc/screenshot_usage.png "usage example")
 
 ### Options
 There are no options are available at the moment.
