@@ -7,13 +7,13 @@ tree is a jQuery plugin for creating tree navigations. intentionaly this is for 
 At the moment this plugin is in pre-alpha stage and is only a proof of concept working on latest chrome and firefox. Lets wait and see if it is leaving this stage one time ;-)
 
 ## Screenshot
-![screenshot](https://raw.github.com/ribbon10/tree/master/doc/screenshot.png "Screenshot")
+![screenshot](https://raw.github.com/ribbon10/tree.js/master/doc/screenshot.png "Screenshot")
 
 ## Example
-For an interactive example have a look at the [demo page](http://htmlpreview.github.io/?https://github.com/ribbon10/tree/master/doc/demo.html).
+For an interactive example have a look at the [demo page](http://htmlpreview.github.io/?https://github.com/ribbon10/tree.js/master/doc/demo.html).
 
 ## Getting Started
-Download [tabeplus](https://github.com/ribbon10/tree/archive/master.zip) from github, unzip to your project and load JavaScript & CSS file on your site.
+Download [tabeplus](https://github.com/ribbon10/tree.js/archive/master.zip) from github, unzip to your project and load JavaScript & CSS file on your site.
 ```html
 <head>
     ...
