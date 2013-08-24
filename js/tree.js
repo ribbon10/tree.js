@@ -53,6 +53,7 @@
           $parent.addClass('collapsed')
           this.$element.addClass('collapsed')
         }
+        return false;
       }
 
     , insert_icons : function($elements, level){
