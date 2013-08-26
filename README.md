@@ -83,7 +83,7 @@ Following html code:
   </tbody>
 </table>
 ```
-is generating this table (screenshot, an interactive demo is available [here](http://htmlpreview.github.io/?https://github.com/ribbon10/tree.js/master/doc/demo.html) ):
+is generating this table (screenshot, an interactive demo is available [here](http://rawgithub.com/ribbon10/tree.js/master/doc/demo.html) ):
 ![usage example](https://raw.github.com/ribbon10/tree.js/master/doc/screenshot_usage.png "usage example")
 
 ### Options
