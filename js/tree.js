@@ -6,8 +6,8 @@
       this.$element = $(element)
       this.options = $.extend({}, $.fn.tree.defaults, options)
 
-      if(!options.parent)
-        this.options.parent = this.parent(this.$element)
+      this.$root = this.options.root = this.options.root || this.root(this.$element)
+      this.$parent = this.options.parent = this.options.parent || this.parent(this.$element)
 
       this.$element.on('click.tree.data-api', $.proxy(this.toggle, this))
     }
@@ -16,10 +16,21 @@
       constructor: Tree
 
     , parent : function($element){
-      var $parent = $($element.attr('href'))
-      if(!$parent.length)
-        $parent = $element.closest('[data-childs]')
+      var $parent = undefined
+      if('#'!=$element.attr('href'))
+        $parent = this.$root.find($element.attr('href'))
+      if(!$parent || !$parent.length)
+        $parent = $element.closest('[data-type="tree-node"]')
       return $parent
+    }
+
+    , root : function($element){
+      var $root = this.$element.closest('[data-type="tree-root"]')
+      return $root
+    }
+
+    , is_beneath_root : function($element){
+      this.options.root.contains($element);
     }
 
     , show_childs : function($elements){
@@ -28,7 +39,7 @@
           var $element = $(element)
           $element.show()
           if( !$element.hasClass('collapsed') ){
-            that.show_childs($($element.data('childs')))
+            that.show_childs(that.$root.find($element.data('childs')))
           }
         });
       }
@@ -38,18 +49,18 @@
         $elements.each(function(index, element){
           var $element = $(element)
           $element.hide()
-          that.hide_childs($($element.data('childs')))
+          that.hide_childs(that.$root.find($element.data('childs')))
         });
       }
 
     , toggle : function(){
         var $parent = this.options.parent
         if( $parent.hasClass('collapsed') ) {
-          this.show_childs($($parent.data('childs')))
+          this.show_childs(this.$root.find($parent.data('childs')))
           $parent.removeClass('collapsed')
           this.$element.removeClass('collapsed')
         } else {
-          this.hide_childs($($parent.data('childs')))
+          this.hide_childs(this.$root.find($parent.data('childs')))
           $parent.addClass('collapsed')
           this.$element.addClass('collapsed')
         }
@@ -62,8 +73,8 @@
         var options = this.options
         $elements.each(function(index, element){
           var $element = $(element)
-          var $insertTarget = $element.find('[data-toggle]').eq(0)
-          var $childs = $($element.data('childs'))
+          var $insertTarget = $element.find('[data-type="tree-interactive"]').eq(0)
+          var $childs = that.$root.find($element.data('childs'))
           var is_node = $childs.length>0
           if(is_node)
             $insertTarget.prepend(options.icons.open.clone())
@@ -75,10 +86,10 @@
       }
 
     , iconify : function(){
-        var root = this.$element.closest('[data-root]')
-        if(!root.hasClass('tree-iconified')){
+        var root = this.$root
+        if(root.data('iconify') && !root.hasClass('tree-iconified')){
           root.addClass('tree-iconified')
-          this.insert_icons($(root.data('root')), 0)
+          this.insert_icons(root.find(root.data('childs')), 0)
         }
       }
 
@@ -128,7 +139,7 @@
     * ============= */
 
     $(window).on('load', function () {
-      $(document).find('[data-toggle=tree]').each(function(){
+      $(document).find('[data-type="tree-interactive"]').each(function(){
         $(this).tree()
         $(this).tree('iconify')
       })
